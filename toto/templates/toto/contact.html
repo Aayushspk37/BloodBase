@@ -92,7 +92,7 @@
         }
 
         footer {
-            background-color: #212121;
+            background-color:  #b71c1c;
             color: white;
             text-align: center;
             padding: 1rem;
@@ -104,6 +104,63 @@
                 flex-direction: column;
             }
         }
+        
+    .welcome-container {
+        background-color:rgb(235, 228, 228);
+        padding: 40px;
+        margin: 5px auto;
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(199, 250, 215, 0.1);
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    .welcome-container p {
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 10px;
+         
+
+    }
+
+    .welcome-container a {
+        color:rgb(168, 239, 199);
+        font-weight: bold;
+        text-decoration: none;
+        
+    }
+
+    .welcome-container a:hover {
+        text-decoration: underline;
+    }
+    .btn-primary {
+    padding: 0.45rem 1rem;
+    background-color:rgb(17, 20, 230);
+    color: white;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin:10px;
+    margin-bottom:5px;
+   margin-top: 3px;
+    text-decoration: none;
+}
+.welcome-user {
+  color: #e0f2f1;
+  font-weight: 600;
+  font-size: 1rem;
+  white-space: nowrap;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  display: inline-block;
+}
+
+.welcome-user:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  cursor: default;
+}
     </style>
 
 </head>
@@ -143,9 +200,13 @@
                     <a class="nav-link text-white" href="order.html">Request</a>
 
                 </ul>
-                
+                {% if user.is_authenticated %}
+      <span class="navbar-text welcome-user mt-2 mt-lg-0 ms-3">
+        Welcome {{ request.user.username }}
+      </span>
+    {% endif %}
              
-                 <div class="dropdown mx-1">
+                 <div class="dropdown mx-0">
                     <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Log Out
