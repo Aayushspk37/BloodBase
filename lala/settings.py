@@ -25,8 +25,17 @@ SECRET_KEY = 'django-insecure-ubq12w4tjo-c5d6e2%udij3!$8h5m-qs*hyr$@#f!6#^p(2fek
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# ALLOWED_HOSTS - Read from environment variable or use defaults
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'bloodbase.onrender.com',  # Your Render URL
+    '.onrender.com',  # This will allow any Render subdomain (useful for previews)
+]
 
-ALLOWED_HOSTS = []
+# CSRF Trusted Origins
+CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', 'https://bloodbase.onrender.com').split(',')
+
 
 
 # Application definition
